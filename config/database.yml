@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: floating_label_development
+
+test:
+  <<: *default
+  database: floating_label_test
+
+production:
+  <<: *default
+  database: <%= ENV['DATABASE_URL'] %>
